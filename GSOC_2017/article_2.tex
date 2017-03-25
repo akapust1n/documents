@@ -120,7 +120,8 @@
 \textbf{Location:          }~~~~~~~~~~~~~~~~~~Moscow, Russia
 \section{Problem}
 Krita contains a large number of tools for painters, a large number of settings and features.
-Their number increases every year, but not all of them are popular. More precisely, the critics want to know which of the options are popular. Based on this information, you can determine the vector of further work, finalize popular, but not too well-implemented features, remove old, useless functions.
+Their number increases every year, but not all of them are popular. More precisely, the critics want to know which of the options are popular. Based on this information, you can determine the vector of further work, finalize popular, but not too well-implemented features, remove old, useless functions. Use of clickstream analytics will help to learn the popularity of feautures.
+
 The collection of statistics will help to create  achievements to the Steam. Achievements for Krita is good marketing solution, which help us to find new users. It would be reasonable to make two versions: Steam version and non-Steam version.
 
 %\begin{itemize}
@@ -151,6 +152,7 @@ Information about & Source & Data \\
 Tools & \begin{tabular}[x]{@{}c@{}}KisTool::activate, KisTool:deactivate,\\etc, overloaded in specific tools\end{tabular}
  &\begin{lstlisting}[language=Protobuf]
 int32 activationTime;
+int32 actionTime;
 int32 useTime;
 int32 kindTool;
 \end{lstlisting} \\
@@ -160,18 +162,20 @@ Strokes & \begin{tabular}[x]{@{}c@{}} KisToolFreehandHelper::initPaintImpl\\ Kis
 int32 distance;
 int32 time;
 int32 opacity;
+double currentExposure;
+double effectiveZoom;
+double pressure;
+double drawingDistance;
 string currentFgColor;
-FillStyle fillStyle;
-StrokeStyle strokeStyle;
+string compositeOpId;
 \end{lstlisting}\\
 \hline \hline
 Presets & KisToolFreehandHelper::initPaintImpl &
     \begin{lstlisting}[language=Protobuf,escapechar=|]
 string koid;
-OutlineMode outlinemode;
 double paintOpFlow;
 string compositeMode;
-double  savedBrushSize;
+double savedBrushSize;
 int32  hashCode;[|\ref{Word:ref1}|]
 	\end{lstlisting} \\
 	\hline \hline
@@ -194,8 +198,13 @@ Scheme description:
 The data from the user is serialized and sent to our nginx, which proxy requests to the backend.On the backend, there is deserialization and recording of information in the database.  The information from the database returns to the backend, where it then goes to the front-line. This scheme seems somewhat redundant, but it has an extensible architecture and is capable of withstanding highloads. Nginx is  an optional element, but with increasing load, this architecture will allow you to scale horizontally
 \subsubsection{Steam achivments}
 It is required to add Steam Sdk.We should to create achievements via Steam web interface. Filling in the list of achievements will be discussed with community. Before any functions can be used, first  {\itshape SteamAPI\_Init()} must be called.After that we can call \textit{SteamUserStats()->SetAchievement( "Draw\_the\_length\_of\_the\_equator") }and set specific achivment.
+\subsection{Example}
+Here is an example of how data storage for a class will be implemented.KisTelemetryTools is singleton.\\
+\includegraphics[scale=0.8]{Tools_uml3}\\
+When events triggered by KisToolMove::activate, KisToolMove::beginPrimaryAction, KisToolMove::endPrimaryAction, information is written to the appropriate structure.When the KisToolMove::deactivate event triggers, information from this structure about usage will be sent to the class KisTelemetryTools, where it will be written to the corresponding protobuf-generated class.When the information reaches a certain size, a notification is triggered to read the information. Information using the function KisTelemetryTools::handleRecords is processed and sent to the class KisTelemeryHandler.From the information a post-request is created and sent via http to nginx. Using nginx, information is proxied and sent to the backend server. Information on the backend is checked for correctness and recorded in the database.This is a simplified model that does not show many nuances, but gives an idea of the general mechanism 
 \subsection{Technologies}
-Nginx is widespread server, which is used by nearby 70\% percents of top-100 worldwide side. ClickHouse allows you to perform analytical queries interactively on real-time data. The system is scalable to very large amounts of data. 
+Protocol Buffers (a.k.a., Google protobuf) are Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data. 
+For с++ language it provides a runtime multi-platform library. Nginx is widespread server, which is used by nearby 70\% percents of top-100 worldwide side. ClickHouse allows you to perform analytical queries interactively on real-time data. The system is scalable to very large amounts of data. 
 
 
 
@@ -258,7 +267,7 @@ Nginx is widespread server, which is used by nearby 70\% percents of top-100 wor
 					\hline
 						1 Aug - 29 Aug. &
 						\begin{tabular}[x]{@{}l@{}}  
-							Creatiion of server-side. Load testing.
+							Creation of server-side. Load testing.
 						\end{tabular}\\
 						\hline
 							29 Aug - 15 Sept. &
@@ -278,8 +287,7 @@ Faculty. I'm interested in C ++, Python,Javascript, web development. I also stud
 \\ 
 I did projects using Django, Nodejs.
 Within the semester project in the second year of education, I made a simple tower-defense game on SFML C++ library. In the third year I made an API for working with the "Forums" database, which withstood high loads. To create this api, I used the libraries Wt, Qt, Libzdb.
- Since last summer I have commited  to Krita. You can also see my \href{https://github.com/akapust1n}{githab} . I also live in the same city as Krita maintainer so I am available for meeting
- and sprints.
+ Since last summer I have commited  to Krita. You can also see my \href{https://github.com/akapust1n}{githab}.
 
 
 
