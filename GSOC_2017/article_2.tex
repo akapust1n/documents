@@ -50,7 +50,12 @@
 \definecolor{urlcolor}{HTML}{799B03} % цвет гиперссылок
 
 \hypersetup{pdfstartview=FitH,  linkcolor=linkcolor,urlcolor=urlcolor, colorlinks=true}
-
+\makeatletter
+\newcommand{\setword}[2]{%
+	\phantomsection
+	#1\def\@currentlabel{\unexpanded{#1}}\label{#2}%
+}
+\makeatother
 
 
 % Define Language
@@ -78,7 +83,7 @@
 \usepackage{titlesec} % Allows customization of titles
 %\renewcommand\thesection{\Roman{section}} % Roman numerals for the sections
 %\renewcommand\thesubsection{\roman{section}} % roman numerals for subsections
-\titleformat{\section}[block]{\large\scshape}{\thesection.}{1em}{} % Change the look of the section titles
+\titleformat{\section}[block]{\Large\scshape}{\thesection.}{1em}{} % Change the look of the section titles
 %\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{} % Change the look of the section titles
 
 %\usepackage{fancyhdr} % Headers and footers
@@ -167,19 +172,19 @@ OutlineMode outlinemode;
 double paintOpFlow;
 string compositeMode;
 double  savedBrushSize;
-int32  hashCode;[|\ref{fml1}|]
+int32  hashCode;[|\ref{Word:ref1}|]
 	\end{lstlisting} \\
 	\hline \hline
 	Actions & KisMainWindows actioncollection() &
-	\begin{lstlisting}[language=Protobuf]
+	\begin{lstlisting}[language=Protobuf,escapechar=|]
 string name;
-string actionSource;
+string actionSource;[|\ref{Word:ref2}|]
 	\end{lstlisting} \\
 	\hline%\hline
 	
-
 \end{longtable}
-\label{fml1} [3.1]: It is required to save presets into map structure for less size of log.\\
+~~~~~~~~~~~~~~~~~[\setword{1}{Word:ref1}]: It is required to save presets into map structure for less size of log.
+ [\setword{2}{Word:ref2}]: Hotkey, menu of something else\\
 
 \subsection{Server-side}
 \includegraphics[scale=0.8]{scheme}
@@ -195,30 +200,87 @@ Nginx is widespread server, which is used by nearby 70\% percents of top-100 wor
 
 
 \section{Timeline}
-Work schedule ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Implementation timeline
-	\begin{table}[h]
-		\begin{minipage}{.4\textwidth}
-			\centering
-			\begin{tabular}{|c|c|}
-				\hline
-				 Period & Work\\
-				\hline 22 May -4 June  & End of the school year. Opportunity to work 7-10 hours a week.
-				\\
-				2,3153 & 1,3644\\
-				\hline
-			\end{tabular}
-		\end{minipage}
-		\begin{minipage}{.4\textwidth}
-			\centering
-			\begin{tabular}{|c|c|}
-				\hline Period  & Work\\
-				\hline 0,2733 & 5,3763\\
-				0,9496 & 5,3763\\
-				\hline
-			\end{tabular}
-		\end{minipage}
-	\end{table}
+
+
+\begin{longtable}{l l}
+
+		\begin{minipage}[t]{0.4\paperwidth}
+			\begin{tabular}[t]{|l|l|} % <--- "[t]" is new
+			\hline
+			\multicolumn{2}{|c|}{Work schedule}\\ \hline
+			Period & Work\\
+			\hline 22 May - 4 June  &
+			\begin{tabular}[x]{@{}l@{}}End of the academic year. I can\\ to work 7-10 hours per week.\end{tabular}
+			\\ \hline
+			4 June - 18 June &
+			\begin{tabular}[x]{@{}l@{}}Exams in university. I can start\\ working 25-30 hours
+				per week.\end{tabular} \\
+			\hline
+			18 June - 29 Aug. &
+			\begin{tabular}[x]{@{}l@{}}  During this period I can work \\full-time on the project.\end{tabular}\\
 	
+				\hline
+				29 June - 15 Sept. &
+				\begin{tabular}[x]{@{}l@{}}  During this period I can work \\full-time on the project and this \\ period serves as
+					compensation \\for the first periods.\end{tabular}\\
+				\hline
+			\end{tabular}
+		\end{minipage}
+		&
+		
+			\begin{minipage}[t]{0.4\paperwidth}
+				\begin{tabular}[t]{|l|l|} % <--- "[t]" is new
+					\hline
+					\multicolumn{2}{|c|}{Implementation timeline}\\ \hline
+					Period & Work\\
+					\hline 22 May - 4 June  &
+					\begin{tabular}[x]{@{}l@{}}I study a code of a client part, \\ I begin to do system of logging.\end{tabular}
+					\\ \hline
+					4 June - 15 June &
+					\begin{tabular}[x]{@{}l@{}}Impelementing logging system for tools.\end{tabular} \\
+					\hline
+					15 June - 29 June. &
+					\begin{tabular}[x]{@{}l@{}} Impelementing logging system for\\ strokes and presets 
+						without taking care of\\ memory. Unstable work is possible\end{tabular}\\
+					
+					\hline
+					29 June - 20 Jul. &
+					\begin{tabular}[x]{@{}l@{}}  
+						End of the implementation of the logging\\ system. Memory optimizations.\\
+						Investigate communication between\\ server and client
+						\end{tabular}\\
+					\hline
+					20 Jul - 1 Aug. &
+					\begin{tabular}[x]{@{}l@{}}  
+						Creation of Steam-version.
+						Discussion \\ of achievements with community.
+					\end{tabular}\\
+					\hline
+						1 Aug - 29 Aug. &
+						\begin{tabular}[x]{@{}l@{}}  
+							Creatiion of server-side. Load testing.
+						\end{tabular}\\
+						\hline
+							29 Aug - 15 Sept. &
+							\begin{tabular}[x]{@{}l@{}}  
+								Buffer time for issues\\ that may take longer
+								than expected.
+							\end{tabular}\\
+							\hline
+				\end{tabular}
+			\end{minipage}
+			\\
+		\end{longtable}
+		%-----------------------
+\section{About me}
+I'm Alexey Kapustin, a 3rd year student of Bauman Moscow State Technical University of Software Engineering 
+Faculty. I'm interested in C ++, Python,Javascript, web development. I also study at the Technopark Mail.ru in the 3rd semester. (Russian School of Web Architects).
+\\ 
+I did projects using Django, Nodejs.
+Within the semester project in the second year of education, I made a simple tower-defense game on SFML C++ library. In the third year I made an API for working with the "Forums" database, which withstood high loads. To create this api, I used the libraries Wt, Qt, Libzdb.
+ Since last summer I have commited  to Krita. You can also see my \href{https://github.com/akapust1n}{githab} . I also live in the same city as Krita maintainer so I am available for meeting
+ and sprints.
+
 
 
 
