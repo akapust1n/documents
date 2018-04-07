@@ -21,46 +21,48 @@ Warning--entry type for "def01" isn't style-file defined
 --line 11 of file rpz.bib
 Warning--entry type for "def02" isn't style-file defined
 --line 30 of file rpz.bib
+Warning--entry type for "def03" isn't style-file defined
+--line 50 of file rpz.bib
 Warning--I didn't find a database entry for "Habr1"
-You've used 5 entries,
+You've used 8 entries,
             2674 wiz_defined-function locations,
-            678 strings with 5818 characters,
-and the built_in function-call counts, 1019 in all, are:
-= -- 138
-> -- 14
-< -- 3
-+ -- 8
-- -- 3
-* -- 32
-:= -- 112
-add.period$ -- 16
-call.type$ -- 5
+            692 strings with 6115 characters,
+and the built_in function-call counts, 1576 in all, are:
+= -- 202
+> -- 23
+< -- 5
++ -- 13
+- -- 5
+* -- 48
+:= -- 169
+add.period$ -- 23
+call.type$ -- 8
 change.case$ -- 0
 chr.to.int$ -- 0
-cite$ -- 5
-duplicate$ -- 58
-empty$ -- 134
-format.name$ -- 8
-if$ -- 283
+cite$ -- 8
+duplicate$ -- 94
+empty$ -- 217
+format.name$ -- 13
+if$ -- 437
 int.to.chr$ -- 0
-int.to.str$ -- 5
+int.to.str$ -- 8
 missing$ -- 0
-newline$ -- 33
-num.names$ -- 6
-pop$ -- 36
+newline$ -- 47
+num.names$ -- 10
+pop$ -- 57
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 15
+skip$ -- 28
 stack$ -- 0
 substring$ -- 0
-swap$ -- 26
+swap$ -- 41
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 3
-width$ -- 6
-write$ -- 69
-(There were 3 warnings)
+while$ -- 5
+width$ -- 9
+write$ -- 105
+(There were 4 warnings)

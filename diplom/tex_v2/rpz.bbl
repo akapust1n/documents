@@ -15,8 +15,12 @@
 \selectlanguageifdefined{russian}
 \BibEmph{определения,~ГОСТ 20886-85: Организация
   данных в системах обработки данных.
-  Термины~и}. 11. \BibUrl{
+  Термины~и}. \BibUrl{
   http://www.gostrf.com/normadata/1/4294832/4294832686.pdf}.
+
+\bibitem{def03}
+\selectlanguageifdefined{russian}
+\BibEmph{Википедия}. \BibUrl{ https://en.wikipedia.org/wiki/Data_set}.
 
 \bibitem{Book02}
 \selectlanguageifdefined{English}
@@ -30,6 +34,18 @@
   Optimization for One-class Classification. Neural Networks~/
   Hush~D.R.~Moya~M.M. ---
 \newblock 1996.
+
+\bibitem{Book04}
+\selectlanguageifdefined{English}
+\BibEmph{Chandola~V~Banerjee~A,~Kumar~V.} Anomaly Detection: A Survey~/
+  Kumar~V.~Chandola~V, Banerjee~A. ---
+\newblock ACM Computing, 2009.
+
+\bibitem{Book05}
+\selectlanguageifdefined{English}
+\BibEmph{Goldstein~M,~Uchida~S.} Behavior Analysis Using Unsupervised Anomaly
+  Detection~/ Uchida~S.~Goldstein~M. ---
+\newblock The 10th Joint Workshop on Machine Perception and Robotics, 2014.
 
 \bibitem{Book01}
 \selectlanguageifdefined{russian}
