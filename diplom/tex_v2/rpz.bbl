@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 \def\selectlanguageifdefined#1{
 \expandafter\ifx\csname date#1\endcsname\relax
 \else\language\csname l@#1\endcsname\fi}
@@ -21,6 +21,12 @@
 \bibitem{def03}
 \selectlanguageifdefined{russian}
 \BibEmph{Википедия}. \BibUrl{ https://en.wikipedia.org/wiki/Data_set}.
+
+\bibitem{Book01}
+\selectlanguageifdefined{russian}
+\BibEmph{Дьяконов,~Александр}. Поиск аномалий
+  (Anomaly Detection)~/ Александр~Дьяконов. ---
+\newblock 2017. \BibUrl{ https://goo.gl/Z43Ne9}.
 
 \bibitem{Book02}
 \selectlanguageifdefined{English}
@@ -47,10 +53,52 @@
   Detection~/ Uchida~S.~Goldstein~M. ---
 \newblock The 10th Joint Workshop on Machine Perception and Robotics, 2014.
 
-\bibitem{Book01}
-\selectlanguageifdefined{russian}
-\BibEmph{Дьяконов,~Александр}. Поиск аномалий
-  (Anomaly Detection)~/ Александр~Дьяконов. ---
-\newblock 2017. \BibUrl{ https://goo.gl/Z43Ne9}.
+\bibitem{Book06}
+\selectlanguageifdefined{English}
+\BibEmph{Андрей,~Гахов}. Интеллектуальный
+  анализ данных~/ Гахов~Андрей. ---
+\newblock Харьковский национальный
+  университет имени В.Н. Карамзина, 2014.
+
+\bibitem{Book07}
+\selectlanguageifdefined{English}
+\BibEmph{Hodge~V.,~Austin~J.} A survey of outlier detection methodologies~/
+  Austin~J.~Hodge~V. ---
+\newblock Artificial intelligence review, 2004.
+
+\bibitem{Book09}
+\selectlanguageifdefined{English}
+\BibEmph{Knox,~Edwin~M.} Algorithms for Mining Distance-Based Outliers in Large
+  Datasets~/ Edwin~M.~Knox, Raymond~T.~Ng. ---
+\newblock University of British Columbia, 1998.
+
+\bibitem{Book10}
+\selectlanguageifdefined{English}
+\BibEmph{S.~Bayers,~A.Raftery}. Nearest Neighbor Clutter Removal for Estimating
+  Features in Spatial Point Processes~/ A.Raftery~S.~Bayers. ---
+\newblock Journal of the American Statistical Association, 1998.
+
+\bibitem{Book11}
+\selectlanguageifdefined{English}
+\BibEmph{Rousseeuw,~Leroy}. Robust Regression and Outlier Detection~/
+  Leroy~Rousseeuw. ---
+\newblock John Wiley and Sons, 1996.
+
+\bibitem{Book12}
+\selectlanguageifdefined{English}
+\BibEmph{Goldstein,~Markus}. A Comparative Evaluation of Unsupervised Anomaly
+  Detection Algorithms for Multivariate Data~/ Markus~Goldstein. ---
+\newblock Seiichi Uchida, 2016.
+
+\bibitem{Book14}
+\selectlanguageifdefined{English}
+\BibEmph{M.,~Goldstein}. Anomaly Detection in Large Datasets~/ Goldstein~M. ---
+\newblock University of Kaiserslauterna, 2014.
+
+\bibitem{Book15}
+\selectlanguageifdefined{English}
+\BibEmph{B.Chu~Chia-Hua~Ho,~Cheng-Hao~Tsa}. Warm Start for Parameter Selection
+  of Linear Classifiers~/ Cheng-Hao~Tsa~B.Chu, Chia-Hua~Ho. ---
+\newblock National Taiwan University, 2015.
 
 \end{thebibliography}
