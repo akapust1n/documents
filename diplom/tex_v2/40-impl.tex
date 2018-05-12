@@ -1,1 +1,31 @@
 \chapter{Технологический раздел}
+НЕ ГОТОВО
+\section{Клиентская часть}
+
+\subsection{Библиотека KUserFeedback}
+
+В качестве вспомогательной библиотеки для сбора стастики используется библиотека KUserFeedback компании KDAB. Эта библиотека включает в себя С++ Qt клиентскую часть, а так же сервер, написанный на PHP\cite{book3} Нам не требуется их сервер и значительная часть функций, мы будем использовать только часть собирающую телеметрию. KUserFeedBack позволяет  собрать библиотеку по частям и линковать к нашему приложению только необхоимые модули. В программе используется модуль Core. Модуль Core содержит абстракный класс источника данных, от которого можно наследовать различные источники данных. Ниже представлено описание этого класса. В дальнейшем мы создадим классы, которые наследуются от этого абстрактого класса. В этих классах будут переопределеные все чисто виртуальные функции. Ключевую роль будет играть переопределение функции \textit{data()} - именно это переопределение несет смысловую нагрузку класса.
+\begin{lstlisting}[language=c++,,escapeinside={(@}{@)},caption={Описание базового класса библиотеки}] 
+class KUSERFEEDBACKCORE_EXPORT AbstractDataSource
+{
+public:
+virtual ~AbstractDataSource();
+QString name() const;
+virtual QString description() const = 0;
+virtual QVariant data() = 0;
+virtual void load(QSettings *settings);  
+virtual void store(QSettings *settings);
+virtual void reset(QSettings *settings);
+Provider::TelemetryMode telemetryMode() const;
+void setTelemetryMode(Provider::TelemetryMode mode);
+
+protected:
+
+explicit AbstractDataSource(const QString &name, Provider::TelemetryMode mode = Provider::DetailedUsageStatistics, AbstractDataSourcePrivate *dd = nullptr);
+void setName(const QString &name);
+class AbstractDataSourcePrivate* const d_ptr;
+};
+}
+
+
+\end{lstlisting}

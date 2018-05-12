@@ -101,4 +101,12 @@
   of Linear Classifiers~/ Cheng-Hao~Tsa~B.Chu, Chia-Hua~Ho. ---
 \newblock National Taiwan University, 2015.
 
+\bibitem{Book16}
+\selectlanguageifdefined{English}
+\BibEmph{Александр,~Гущин}. Методы
+  ансамблирования обучающихся алгоритмов~/
+  Гущин~Александр. ---
+\newblock Московский физико-технический
+  институт, 2015.
+
 \end{thebibliography}
