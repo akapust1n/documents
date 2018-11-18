@@ -999,9 +999,9 @@ FUNCTION {article}
   new.block
   format.pages.page output
   new.block
-  note output
   new.sentence
   format.url output
+  note output
   format.annote output
   fin.entry
 }
@@ -1024,9 +1024,9 @@ FUNCTION {book}
   new.block
   format.pages.page output
   new.block
-  note output
   new.sentence
   format.url output
+  note output
   format.annote output
   fin.entry
 }
@@ -1099,9 +1099,9 @@ FUNCTION {incollection}
   new.block
   format.pages.page output
   new.block
-  note output
   new.sentence
   format.url output
+  note output
   format.annote output
   fin.entry
 }
@@ -1134,9 +1134,9 @@ FUNCTION {inproceedings}
   new.block
   format.pages.page output
   new.block
-  note output
   new.sentence
   format.url output
+  note output
   format.annote output
   fin.entry
 }
@@ -1175,9 +1175,9 @@ FUNCTION {manual}
   format.edition output
   format.date output
   new.block
-  note output
   new.sentence
   format.url output
+  note output
   format.annote output
   fin.entry
 }
@@ -1193,9 +1193,9 @@ FUNCTION {mastersthesis}
   address output
   format.date "year" output.check
   new.block
-  note output
   new.block
   format.url output
+  note output
   format.annote output
   fin.entry
 }
@@ -1210,9 +1210,9 @@ FUNCTION {misc}
   new.block
   format.date output
   new.block
-  note output
   new.sentence
   format.url output
+  note output
   format.annote output
   fin.entry
 }
@@ -1230,9 +1230,9 @@ FUNCTION {phdthesis}
   output.address.publisher.date
   new.block
   format.pages.page output
-  note output
   new.sentence
   format.url output
+  note output
   format.annote output
   fin.entry
 }
@@ -1256,9 +1256,9 @@ FUNCTION {proceedings}
     }
   if$
   new.block
-  note output
   new.sentence
   format.url output
+  note output
   format.annote output
   fin.entry
 }
@@ -1279,9 +1279,9 @@ FUNCTION {techreport}
   institution "institution" output.check
   format.date "year" output.check
   new.block
-  note output
   new.sentence
   format.url output
+  note output
   format.annote output
   fin.entry
 }
@@ -1294,9 +1294,9 @@ FUNCTION {unpublished}
   author.after
   editor.organization.after
   new.block
-  note "note" output.check
   new.sentence
   format.url output
+  note "note" output.check
   format.annote output
   fin.entry
 }

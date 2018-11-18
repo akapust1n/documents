@@ -1,6 +1,7 @@
 This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: rpz.aux
+A level-1 auxiliary file: 00-title.aux
 A level-1 auxiliary file: 00-abstract.aux
 A level-1 auxiliary file: 10-defines.aux
 A level-1 auxiliary file: 11-abbrev.aux
@@ -18,56 +19,60 @@ A level-1 auxiliary file: 90-appendix1.aux
 A level-1 auxiliary file: 91-appendix2.aux
 Database file #1: rpz.bib
 Warning--entry type for "def01" isn't style-file defined
---line 11 of file rpz.bib
+--line 12 of file rpz.bib
 Warning--entry type for "def02" isn't style-file defined
---line 32 of file rpz.bib
+--line 38 of file rpz.bib
 Warning--entry type for "def03" isn't style-file defined
---line 52 of file rpz.bib
+--line 60 of file rpz.bib
 Warning--entry type for "def04" isn't style-file defined
---line 144 of file rpz.bib
+--line 155 of file rpz.bib
 Warning--entry type for "def05" isn't style-file defined
---line 158 of file rpz.bib
+--line 171 of file rpz.bib
 Warning--entry type for "def06" isn't style-file defined
---line 165 of file rpz.bib
-You've used 24 entries,
+--line 180 of file rpz.bib
+Warning--entry type for "def07" isn't style-file defined
+--line 216 of file rpz.bib
+Warning--entry type for "def08" isn't style-file defined
+--line 225 of file rpz.bib
+You've used 27 entries,
             2674 wiz_defined-function locations,
-            778 strings with 8629 characters,
-and the built_in function-call counts, 5110 in all, are:
-= -- 687
-> -- 86
-< -- 18
-+ -- 44
-- -- 20
-* -- 151
-:= -- 545
-add.period$ -- 76
-call.type$ -- 24
+            807 strings with 9879 characters,
+and the built_in function-call counts, 5793 in all, are:
+= -- 795
+> -- 92
+< -- 19
++ -- 48
+- -- 21
+* -- 193
+:= -- 600
+add.period$ -- 96
+call.type$ -- 27
 change.case$ -- 0
 chr.to.int$ -- 0
-cite$ -- 24
-duplicate$ -- 299
-empty$ -- 696
-format.name$ -- 43
-if$ -- 1449
+cite$ -- 27
+duplicate$ -- 330
+empty$ -- 764
+format.name$ -- 48
+if$ -- 1630
 int.to.chr$ -- 0
-int.to.str$ -- 24
+int.to.str$ -- 27
 missing$ -- 0
-newline$ -- 128
-num.names$ -- 36
-pop$ -- 175
+newline$ -- 151
+num.names$ -- 38
+pop$ -- 171
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 72
+skip$ -- 84
 stack$ -- 0
 substring$ -- 0
-swap$ -- 138
+swap$ -- 177
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 18
-width$ -- 26
-write$ -- 330
-(There were 6 warnings)
+while$ -- 19
+width$ -- 29
+write$ -- 406
+(There were 8 warnings)
