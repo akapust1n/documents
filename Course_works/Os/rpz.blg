@@ -1,0 +1,62 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: rpz.aux
+A level-1 auxiliary file: 00-abstract.aux
+A level-1 auxiliary file: 10-defines.aux
+A level-1 auxiliary file: 11-abbrev.aux
+A level-1 auxiliary file: 12-intro.aux
+A level-1 auxiliary file: 20-analysis.aux
+A level-1 auxiliary file: 30-design.aux
+A level-1 auxiliary file: 40-impl.aux
+A level-1 auxiliary file: 50-research.aux
+A level-1 auxiliary file: 60-economics.aux
+A level-1 auxiliary file: 70-bzd.aux
+A level-1 auxiliary file: 80-conclusion.aux
+A level-1 auxiliary file: 81-biblio.aux
+The style file: gost780u.bst
+A level-1 auxiliary file: 90-appendix1.aux
+A level-1 auxiliary file: 91-appendix2.aux
+Database file #1: rpz.bib
+Warning--I didn't find a database entry for "boook4"
+You've used 4 entries,
+            2674 wiz_defined-function locations,
+            668 strings with 5519 characters,
+and the built_in function-call counts, 879 in all, are:
+= -- 104
+> -- 13
+< -- 3
++ -- 7
+- -- 3
+* -- 21
+:= -- 102
+add.period$ -- 11
+call.type$ -- 4
+change.case$ -- 0
+chr.to.int$ -- 0
+cite$ -- 4
+duplicate$ -- 53
+empty$ -- 128
+format.name$ -- 6
+if$ -- 242
+int.to.chr$ -- 0
+int.to.str$ -- 4
+missing$ -- 0
+newline$ -- 30
+num.names$ -- 6
+pop$ -- 33
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 14
+stack$ -- 0
+substring$ -- 0
+swap$ -- 20
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 3
+width$ -- 5
+write$ -- 62
+(There was 1 warning)

@@ -1,0 +1,38 @@
+\begin{thebibliography}{1}
+\def\selectlanguageifdefined#1{
+\expandafter\ifx\csname date#1\endcsname\relax
+\else\language\csname l@#1\endcsname\fi}
+\ifx\undefined\url\def\url#1{{\small #1}}\else\fi
+\ifx\undefined\BibUrl\def\BibUrl#1{\url{#1}}\else\fi
+\ifx\undefined\BibAnnote\long\def\BibAnnote#1{}\else\fi
+\ifx\undefined\BibEmph\def\BibEmph#1{\emph{#1}}\else\fi
+
+\bibitem{book2}
+\selectlanguageifdefined{english}
+\BibEmph{Kazakov,~Dmitry}. Krita history~/ Dmitry~Kazakov. ---
+\newblock https://krita.org/en/about/history, 2014.
+
+\bibitem{book3}
+\selectlanguageifdefined{english}
+\BibEmph{Krause,~Volter}. KUserFeedback~/ Volter~Krause. ---
+\newblock https://github.com/KDE/kuserfeedback, 2017.
+
+\bibitem{book1}
+\selectlanguageifdefined{english}
+\BibEmph{feeeper}. Шпаргалка по работе с JSON в Golang~/
+  ~feeeper. ---
+\newblock
+  https://ashirobokov.wordpress.com/2016/09/22/json-golang-cheat-sheet/, 2016.
+
+\bibitem{book5}
+\selectlanguageifdefined{english}
+\BibEmph{Зубач,~Николай}. О плюсах и минусах Go~/
+  Николай~Зубач. ---
+\newblock https://habrahabr.ru/post/229169/, 2014.
+
+\bibitem{book4}
+\selectlanguageifdefined{english}
+\BibEmph{Azerus,~Monty}. Плюсы и минусы Django~/ Monty~Azerus. ---
+\newblock https://python-scripts.com/django-obzor, 2017.
+
+\end{thebibliography}
