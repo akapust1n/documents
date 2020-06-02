@@ -57,20 +57,14 @@ But I thought just on big points, I mean, he played well. Hit his forehand extre
 I thought it was a high-level match. Two tiebreaks. I played a couple loose points here or there. That's all it takes against a player like that. He was just too good today.
 \end{lstlisting}
 
-Так же программе на вход поются данные о двух спортсменах в фомате csv,
-где вместо F\_name\% подставляется название соотвествующей метрики
+Так же программе на вход подаются данные о двух спортсменах в фомате csv,
+где вместо F\_name\% подставляется название соотвествующей метрики;
 \begin{lstlisting}[,,escapeinside={(@}{@)},caption={Пример входного файла программы поиска аномалий для проверки корректности алгоритма}] 
-Surname,F_name1,F_name2,F_name3, F_name4,F_name4,F_name5,F_name6
-Player1,1,14.23,1.71,2.43,15.6,127
-Player2, 1,13.2,1.78,2.14,11.2,100
+Surname1,Surname2, F_name1,F_name2,F_name3, F_name4,F_name4,F_name5
+Player1,Player2 1,14.23,1.71,2.43,15.6
+
 \end{lstlisting}
-Третий формат возможный формат файлов предназначен для демонстрационного режима работы программы. В начале строки располагается текстовое описание элемента(без пробелов), следующие два атрибута характеризуют элемент в двумерном пространстве.
-\begin{lstlisting}[language=c++,,escapeinside={(@}{@)},caption={Пример входного файла программы поиска аномалий демонстрационного режима}] 
-edit 23 53
-undo 35 547
-redo 100 0
-editcut 46 3
-\end{lstlisting}
+В начале строки две указываются две фамилии спортсменов без пробелов. После этого набор не нормализованных статистических данных.
 
 \section{Используемые библиотеки}
 
@@ -97,6 +91,7 @@ Pandas - библиотека на Python, позволяющая осущест
 	\item interview2 - текст интервью второго спортсмена
 	\item statistics - статистические данные о спорсменах
 \end{itemize}
+
 \begin{lstlisting}[language=c++,,escapeinside={(@}{@)},caption={Команда запуска програмы}] 
 python main.py --interview1 text1 --interview2 text2 --staticstics stats.csv
 \end{lstlisting}
