@@ -5,7 +5,6 @@
 \EqInChapter % формулы будут нумероваться в пределах раздела
 \TableInChapter % таблицы будут нумероваться в пределах раздела
 \PicInChapter % рисунки будут нумероваться в пределах раздела
-\usepackage{slashbox}
 
 % Добавляем гипертекстовое оглавление в PDF
 \usepackage[
@@ -13,7 +12,6 @@ bookmarks=true, colorlinks=true, unicode=true,
 urlcolor=black,linkcolor=black, anchorcolor=black,
 citecolor=black, menucolor=black, filecolor=black,
 ]{hyperref}
-
 % Изменение начертания шрифта --- после чего выглядит таймсоподобно.
 % apt-get install scalable-cyrfonts-tex
 
@@ -28,10 +26,10 @@ citecolor=black, menucolor=black, filecolor=black,
 \usepackage{graphicx}   % Пакет для включения рисунков
 
 % С такими оно полями оно работает по-умолчанию:
-% \RequirePackage[left=20mm,right=10mm,top=20mm,bottom=20mm,headsep=0pt]{geometry}
+%\RequirePackage[left=30mm,right=10mm,top=20mm,bottom=20mm,headsep=0pt]{geometry}
 % Если вас тошнит от поля в 10мм --- увеличивайте до 20-ти, ну и про переплёт не забывайте:
-\geometry{right=20mm}
-\geometry{left=30mm}
+%\geometry{right=10mm}
+%\geometry{left=30mm}
 
 
 % Пакет Tikz
@@ -47,10 +45,24 @@ citecolor=black, menucolor=black, filecolor=black,
 % itemize внутри tabular
 \usepackage{paralist,array}
 
-% Центрирование подписей к плавающим окружениям
-\usepackage[justification=centering]{caption}
+% псевдокод
+\usepackage{algorithm2e}
 
-% Греческий алфавит
+% греческий для формул
 \usepackage{upgreek}
-% Значки рациональных чисел
-\usepackage{amsfonts}
+
+\SetKwInput{KwData}{Исходные параметры}
+\SetKwInput{KwResult}{Результат}
+\SetKwInput{KwIn}{Входные данные}
+\SetKwInput{KwOut}{Выходные данные}
+\SetKwIF{If}{ElseIf}{Else}{если}{тогда}{иначе если}{иначе}{конец условия}
+\SetKwFor{While}{пока}{выполнять}{конец цикла}
+\SetKw{KwTo}{от}
+\SetKw{KwRet}{возвратить}
+\SetKw{Return}{возвратить}
+\SetKwBlock{Begin}{начало блока}{конец блока}
+\SetKwSwitch{Switch}{Case}{Other}{Проверить значение}{и выполнить}{вариант}{в противном случае}{конец варианта}{конец проверки значений}
+\SetKwFor{For}{цикл}{выполнять}{конец цикла}
+\SetKwFor{ForEach}{для каждого}{выполнять}{конец цикла}
+\SetKwRepeat{Repeat}{повторять}{до тех пор, пока}
+\SetAlgorithmName{Алгоритм}{алгоритм}{Список алгоритмов}

@@ -11,7 +11,7 @@
 %%% TeX-master: "rpz"
 %%% End: 
 
-\begin{lstlisting}[language=python,,escapeinside={(@}{@)},caption={Код создания модели Word2Vec}] 
+\begin{lstlisting}[language=python,,escapeinside={(@}{@)},caption={Код создания модели Word2Vec}, xleftmargin=.1\textwidth, xrightmargin=.1\textwidth] 
 import gensim
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import SGDClassifier
@@ -30,7 +30,7 @@ data_path = "data/"
 pos_files = os.listdir(data_path + "pos/")
 neg_files = os.listdir(data_path + "neg/")
 
-for pos_file in pos_files:  # only for 1 file
+for pos_file in pos_files:  
 	with open(data_path + "pos/" + pos_file, 'r') as infile:
 	pos_reviews = infile.readlines()
 
@@ -47,11 +47,10 @@ x_train = cleanText(x_train)
 x_test = cleanText(x_test)
 
 n_dim = 300
-# Initialize model and build vocab
+
 imdb_w2v = Word2Vec(size=n_dim, min_count=10)
 imdb_w2v.build_vocab(x_train)
 
-# Train the model over train_reviews (this may take several minutes)
 imdb_w2v.train(x_train, total_examples=imdb_w2v.corpus_count,
 epochs=imdb_w2v.iter)
 
@@ -73,7 +72,7 @@ def buildWordVector(text, size):
 train_vecs = np.concatenate([buildWordVector(z, n_dim) for z in x_train])
 train_vecs = scale(train_vecs)
 
-# Train word2vec on test tweets
+
 imdb_w2v.train(x_test, total_examples=imdb_w2v.corpus_count,
 epochs=imdb_w2v.iter)
 

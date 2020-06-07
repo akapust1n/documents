@@ -16,11 +16,11 @@
            \cyri\cyrs\cyrp\cyro\cyrl\cyrn\cyri\cyrt\cyre\cyrl\cyre\cyr\cyrishrt}%
 }
 \newcommand\Referat{%реферат
- \chapter*{\CYRR\cyre\cyrf\cyre\cyrr\cyra\cyrt}%
+ \chapter*{\CYRR\CYRE\CYRF\CYRE\CYRR\CYRA\CYRT}%
 }
 \addto\captionsrussian{%содержание
  \def\contentsname{%
-  \CYRS\cyro\cyrd\cyre\cyrr\cyrzh\cyra\cyrn\cyri\cyre}%
+  \CYRS\CYRO\CYRD\CYRE\CYRR\CYRZH\CYRA\CYRN\CYRI\CYRE}%
 }
 \newenvironment{abstract}{%То же самое, только как у белых людей -- Коротков И.
  \Referat
@@ -40,7 +40,7 @@
            \cyrs\cyro\cyrk\cyrr\cyra\cyrshch\cyre\cyrn\cyri\cyrya}%
 }
 \newcommand\Introduction{%введение
- \chapter{\CYRV\cyrv\cyre\cyrd\cyre\cyrn\cyri\cyre}%
+ \chapter{\CYRV\CYRV\CYRE\CYRD\CYRE\CYRN\CYRI\CYRE}%
 }
 \newcommand\Conclusion{%заключение
  \chapter{\CYRZ\cyra\cyrk\cyrl\cyryu\cyrch\cyre\cyrn\cyri\cyre}%
@@ -119,6 +119,19 @@
   {\Nir@OrgLongName}
 
   \vfill
+  \begin{tabular}{p{80mm}p{80mm}}
+    \Nir@UdkName \newline
+    \Nir@No \newline
+    \Nir@InventarNo \newline
+   &
+    \Nir@Confirm
+
+    \vspace{5mm}
+    \Nir@BossPost \newline \newline
+    \underline{~~~~~~~~~~~~~~~~~} \Nir@BossName \newline
+    <<\underline{~~~~}>>\underline{~~~~~~~~~~~~~~~~~} \Nir@Year~\cyrg.
+  \end{tabular}
+  \vfill
 
 \Nir@AnnOtchet \Nir@Otchet
 
@@ -126,7 +139,11 @@
   #1
   \vspace{8mm}
 
-\Nir@StageNo~~\Nir@StageTitle
+\Nir@StageNo~~\Nir@StageTitle 
+
+(\Nir@StageType)
+
+
 
   \vfill
   \begin{tabular}{p{80mm}p{80mm}}
