@@ -1,5 +1,5 @@
 \chapter{Приложение А}
-%\label{cha:appendix1}
+\label{cha:appendix1}
 
 %\begin{figure}
 %\centering
@@ -10,8 +10,10 @@
 %%% mode: latex
 %%% TeX-master: "rpz"
 %%% End: 
+%,caption={Код создания модели Word2Vec},
+\captionsetup{justification=centering}
 
-\begin{lstlisting}[language=python,,escapeinside={(@}{@)},caption={Код создания модели Word2Vec}, xleftmargin=.1\textwidth, xrightmargin=.1\textwidth] 
+\begin{lstlisting}[language=python,,escapeinside={(@}{@)}, xleftmargin=.1\textwidth, xrightmargin=.1\textwidth] 
 import gensim
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import SGDClassifier
@@ -55,34 +57,5 @@ imdb_w2v.train(x_train, total_examples=imdb_w2v.corpus_count,
 epochs=imdb_w2v.iter)
 
 
-def buildWordVector(text, size):
-	vec = np.zeros(size).reshape((1, size))
-	count = 0.
-	for word in text:
-	try:
-		vec += imdb_w2v[word].reshape((1, size))
-		count += 1.
-	except KeyError:
-	continue
-	if count != 0:
-		vec /= count
-	return vec
-
-
-train_vecs = np.concatenate([buildWordVector(z, n_dim) for z in x_train])
-train_vecs = scale(train_vecs)
-
-
-imdb_w2v.train(x_test, total_examples=imdb_w2v.corpus_count,
-epochs=imdb_w2v.iter)
-
-test_vecs = np.concatenate([buildWordVector(z, n_dim) for z in x_test])
-test_vecs = scale(test_vecs)
-
-lr = CalibratedClassifierCV()
-lr.fit(train_vecs, y_train)
-
-print('Test Accuracy: %.2f' % lr.score(test_vecs, y_test))
-pred_probas = lr.predict_proba(test_vecs)[:, 1]
 
 \end{lstlisting}
