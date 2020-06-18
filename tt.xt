@@ -1,0 +1,770 @@
+diff --cc master_diplom/20-analysis.tex
+index 08160d1,67d3853..0000000
+--- a/master_diplom/20-analysis.tex
++++ b/master_diplom/20-analysis.tex
+@@@ -11,7 -11,6 +11,10 @@@
+  	\item создать ПО, реализующее  разработанный метод прогнозирования результатов теннисных матчей
+  \end{itemize}
+  \section{Что такое спортивное прогнозирование}
+ +<<<<<<< HEAD
+++<<<<<<< HEAD
+++=======
+++>>>>>>> b6d14b4a89ff7bc598808dbfa2e079c5c2cc0f26
+  Спортивное прогнозирование предполагает предугадывание результатов предстоящих спортивных событий или контрольных результатов, которые спортсмен( или команда спортсменов) показывает на спортивных соревнованиях\cite{Book01}. Прогнозы даются на конкретные события в конкретные моменты времени, на результат совокупности событий,ограниченных во времени(например, соревновательный сезон). Наиболее распространены прогнозы на результаты конкретного матча и сезона в целом. Прогнозы могу осуществляться на основе алгоритмов анализа информации, экспертной оценке, а так же комбинацией экспертной оценки. В данной работе будет рассмотрено прогнозирование на основе анализа априорной информации. Т.е. прогноз на какое-либо событие будет даваться до его начала и текущая информация о ходе события не будет учитываться.
+  
+  \section{Сложность прогнозирования результатов}
+@@@ -430,7 -429,7 +433,7 @@@ p(w = w0) = \prod_{j=1}^{L(w) - 1} = \s
+  	D[\overline{x}^\prime]=0	 
+  	\end{equation}
+  	Метод полезен когда в данных содержатся выбросы.
+--	\item Масштабирование заключается в изменении длины вектора значений атрибута путем умножения на константу \cite{Book06} .
+++	\item Масштабирование заключается в изменении длины вектора значений атрибута путем умножения на константу \cite{Book20} .
+  	\begin{equation}
+  	x^\prime_i=\uptau(x_i)=\lambda*x_i
+  	\end{equation}
+diff --git a/master_diplom/50-research.tex b/master_diplom/50-research.tex
+index 8feff51..3658b63 100644
+--- a/master_diplom/50-research.tex
++++ b/master_diplom/50-research.tex
+@@ -107,7 +107,7 @@ Sport’s\cite{Book37}, а так же из статьи Liye Fu\cite{Book38}.В
+ Исходя из вышеприведенных данных можно заметить, что точность прогнозов уменьшается с увеличением количества аналазируемых данных.
+ 
+ Так же проведем сравнение алгоритмов прогнозирования для различных  ассоциаций турниров.
+-\begin{table}[]
++\begin{table}[!h]
+ 	
+ 	\caption{\label{tab:issled2}}{Сравнение методов прогнозирования результатов теннисных матчей с разбивкой по ассоциацям}
+ 	
+diff --git a/master_diplom/90-appendix1.tex b/master_diplom/90-appendix1.tex
+index 54fc602..5ee9e80 100644
+--- a/master_diplom/90-appendix1.tex
++++ b/master_diplom/90-appendix1.tex
+@@ -30,7 +30,7 @@ data_path = "data/"
+ pos_files = os.listdir(data_path + "pos/")
+ neg_files = os.listdir(data_path + "neg/")
+ 
+-for pos_file in pos_files:  # only for 1 file
++for pos_file in pos_files:  
+ 	with open(data_path + "pos/" + pos_file, 'r') as infile:
+ 	pos_reviews = infile.readlines()
+ 
+@@ -47,11 +47,10 @@ x_train = cleanText(x_train)
+ x_test = cleanText(x_test)
+ 
+ n_dim = 300
+-# Initialize model and build vocab
++
+ imdb_w2v = Word2Vec(size=n_dim, min_count=10)
+ imdb_w2v.build_vocab(x_train)
+ 
+-# Train the model over train_reviews (this may take several minutes)
+ imdb_w2v.train(x_train, total_examples=imdb_w2v.corpus_count,
+ epochs=imdb_w2v.iter)
+ 
+@@ -73,7 +72,7 @@ def buildWordVector(text, size):
+ train_vecs = np.concatenate([buildWordVector(z, n_dim) for z in x_train])
+ train_vecs = scale(train_vecs)
+ 
+-# Train word2vec on test tweets
++
+ imdb_w2v.train(x_test, total_examples=imdb_w2v.corpus_count,
+ epochs=imdb_w2v.iter)
+ 
+diff --git a/master_diplom/G2-105.sty b/master_diplom/G2-105.sty
+index e8c8a93..3ec4655 100644
+--- a/master_diplom/G2-105.sty
++++ b/master_diplom/G2-105.sty
+@@ -249,13 +249,13 @@
+   %  перенос в словах-с-дефисом
+   \lccode`\-=`\-
+   \defaulthyphenchar=127
+-
+-  \RequirePackage{cmap} %теперь из pdf можно копипастить русский текст
++  
++  \RequirePackage[english,russian]{babel}
+   \RequirePackage[T2A]{fontenc} % T1 по этой же пичине, иначе акробату плохо.
+   \RequirePackage[\Gost@encoding]{inputenc}
+-  \RequirePackage[english,russian]{babel}
+   \RequirePackage{ucs} %теперь из pdf можно копипастить русский текст
+   \RequirePackage{mathtext}%русские буквы в формулах
++  \RequirePackage{cmap} %теперь из pdf можно копипастить русский текст
+   \if@usepscyr
+     \RequirePackage[math]{pscyr}
+   \fi
+@@ -268,7 +268,7 @@
+   \RequirePackage{fontspec}
+   \RequirePackage{polyglossia}
+   \RequirePackage{xecyr}
+-  \setmainlanguage[spelling=modern]{russian}
++  \setmainlanguage[spelling=modern]{russian} 
+   \setotherlanguage{english}
+   \defaultfontfeatures{Mapping=tex-text}
+   \setmainfont{CMU Serif}
+@@ -408,7 +408,7 @@
+ % У рисунков вырвнивание по центру
+ \captionsetup[figure]{justification=centering}
+ % У таблиц -- слева, зазор 5pt вместо 10
+-\captionsetup[table]{position=top,aboveskip=5pt,justification=justified}
++\captionsetup[table]{position=top,aboveskip=5pt}
+ 
+ \def\fps@figure{bph}
+ \def\ftype@figure{1}
+@@ -420,9 +420,7 @@
+ \newenvironment{figure*}{\@dblfloat{figure}}{\end@dblfloat}
+ 
+ %  Подпись к рисунку
+-% \addto\captionsrussian{\renewcommand{\figurename}{{\cyr\CYRR\cyri\cyrs\cyru\cyrn\cyro\cyrk}}}
+-\DeclareCaptionLabelFormat{figure}{Рисунок #2}
+-\captionsetup[figure]{labelformat=figure}
++\addto\captionsrussian{\def\figurename{{\cyr\CYRR\cyri\cyrs\cyru\cyrn\cyro\cyrk}}}
+ 
+ % ... допускается нумерация рисунков в пределах раздела
+ \newcommand\PicInChapter{%
+diff --git a/master_diplom/G7-32.cls b/master_diplom/G7-32.cls
+index 0674c45..0618160 100644
+--- a/master_diplom/G7-32.cls
++++ b/master_diplom/G7-32.cls
+@@ -41,7 +41,7 @@
+ \ProvidesClass{G7-32}[2003/07/01 v1.0 Non Standard LaTeX document class]
+ 
+ \RequirePackage{G2-105}
+-\RequirePackage[left=20mm,right=10mm,top=20mm,bottom=20mm,headsep=0pt]{geometry}
++\RequirePackage[left=30mm,right=10mm,top=20mm,bottom=22mm,headsep=0pt]{geometry}
+ \RequirePackage{G7-32}
+ 
+ \endinput
+diff --git a/master_diplom/G7-32.sty b/master_diplom/G7-32.sty
+index 3691756..c3ec6c8 100644
+--- a/master_diplom/G7-32.sty
++++ b/master_diplom/G7-32.sty
+@@ -16,11 +16,11 @@
+            \cyri\cyrs\cyrp\cyro\cyrl\cyrn\cyri\cyrt\cyre\cyrl\cyre\cyr\cyrishrt}%
+ }
+ \newcommand\Referat{%реферат
+- \chapter*{\CYRR\cyre\cyrf\cyre\cyrr\cyra\cyrt}%
++ \chapter*{\CYRR\CYRE\CYRF\CYRE\CYRR\CYRA\CYRT}%
+ }
+ \addto\captionsrussian{%содержание
+  \def\contentsname{%
+-  \CYRS\cyro\cyrd\cyre\cyrr\cyrzh\cyra\cyrn\cyri\cyre}%
++  \CYRS\CYRO\CYRD\CYRE\CYRR\CYRZH\CYRA\CYRN\CYRI\CYRE}%
+ }
+ \newenvironment{abstract}{%То же самое, только как у белых людей -- Коротков И.
+  \Referat
+@@ -40,7 +40,7 @@
+            \cyrs\cyro\cyrk\cyrr\cyra\cyrshch\cyre\cyrn\cyri\cyrya}%
+ }
+ \newcommand\Introduction{%введение
+- \chapter{\CYRV\cyrv\cyre\cyrd\cyre\cyrn\cyri\cyre}%
++ \chapter{\CYRV\CYRV\CYRE\CYRD\CYRE\CYRN\CYRI\CYRE}%
+ }
+ \newcommand\Conclusion{%заключение
+  \chapter{\CYRZ\cyra\cyrk\cyrl\cyryu\cyrch\cyre\cyrn\cyri\cyre}%
+@@ -119,6 +119,19 @@
+   {\Nir@OrgLongName}
+ 
+   \vfill
++  \begin{tabular}{p{80mm}p{80mm}}
++    \Nir@UdkName \newline
++    \Nir@No \newline
++    \Nir@InventarNo \newline
++   &
++    \Nir@Confirm
++
++    \vspace{5mm}
++    \Nir@BossPost \newline \newline
++    \underline{~~~~~~~~~~~~~~~~~} \Nir@BossName \newline
++    <<\underline{~~~~}>>\underline{~~~~~~~~~~~~~~~~~} \Nir@Year~\cyrg.
++  \end{tabular}
++  \vfill
+ 
+ \Nir@AnnOtchet \Nir@Otchet
+ 
+@@ -126,7 +139,11 @@
+   #1
+   \vspace{8mm}
+ 
+-\Nir@StageNo~~\Nir@StageTitle
++\Nir@StageNo~~\Nir@StageTitle 
++
++(\Nir@StageType)
++
++
+ 
+   \vfill
+   \begin{tabular}{p{80mm}p{80mm}}
+diff --git a/master_diplom/GostBase.clo b/master_diplom/GostBase.clo
+index 4a2c6ef..c66e7b9 100644
+--- a/master_diplom/GostBase.clo
++++ b/master_diplom/GostBase.clo
+@@ -10,9 +10,6 @@
+ \DeclareOption{10pt}{\renewcommand\@ptsize{10}}
+ \DeclareOption{12pt}{\renewcommand\@ptsize{12}}
+ \DeclareOption{14pt}{\renewcommand\@ptsize{14}}
+-\DeclareOption{15pt}{\renewcommand\@ptsize{15}}
+-\DeclareOption{16pt}{\renewcommand\@ptsize{16}}
+-\DeclareOption{17pt}{\renewcommand\@ptsize{17}}
+ \DeclareOption{draft}{\setlength\overfullrule{5pt}}
+ \DeclareOption{final}{\setlength\overfullrule{0pt}}
+ \DeclareOption{usehyperref}{\@usehyperreftrue}
+diff --git a/master_diplom/gost780u.bst b/master_diplom/gost780u.bst
+index 1911d38..35ba3f5 100644
+--- a/master_diplom/gost780u.bst
++++ b/master_diplom/gost780u.bst
+@@ -999,9 +999,9 @@ FUNCTION {article}
+   new.block
+   format.pages.page output
+   new.block
++  note output
+   new.sentence
+   format.url output
+-  note output
+   format.annote output
+   fin.entry
+ }
+@@ -1024,9 +1024,9 @@ FUNCTION {book}
+   new.block
+   format.pages.page output
+   new.block
++  note output
+   new.sentence
+   format.url output
+-  note output
+   format.annote output
+   fin.entry
+ }
+@@ -1099,9 +1099,9 @@ FUNCTION {incollection}
+   new.block
+   format.pages.page output
+   new.block
++  note output
+   new.sentence
+   format.url output
+-  note output
+   format.annote output
+   fin.entry
+ }
+@@ -1134,9 +1134,9 @@ FUNCTION {inproceedings}
+   new.block
+   format.pages.page output
+   new.block
++  note output
+   new.sentence
+   format.url output
+-  note output
+   format.annote output
+   fin.entry
+ }
+@@ -1175,9 +1175,9 @@ FUNCTION {manual}
+   format.edition output
+   format.date output
+   new.block
++  note output
+   new.sentence
+   format.url output
+-  note output
+   format.annote output
+   fin.entry
+ }
+@@ -1193,9 +1193,9 @@ FUNCTION {mastersthesis}
+   address output
+   format.date "year" output.check
+   new.block
++  note output
+   new.block
+   format.url output
+-  note output
+   format.annote output
+   fin.entry
+ }
+@@ -1210,9 +1210,9 @@ FUNCTION {misc}
+   new.block
+   format.date output
+   new.block
++  note output
+   new.sentence
+   format.url output
+-  note output
+   format.annote output
+   fin.entry
+ }
+@@ -1230,9 +1230,9 @@ FUNCTION {phdthesis}
+   output.address.publisher.date
+   new.block
+   format.pages.page output
++  note output
+   new.sentence
+   format.url output
+-  note output
+   format.annote output
+   fin.entry
+ }
+@@ -1256,9 +1256,9 @@ FUNCTION {proceedings}
+     }
+   if$
+   new.block
++  note output
+   new.sentence
+   format.url output
+-  note output
+   format.annote output
+   fin.entry
+ }
+@@ -1279,9 +1279,9 @@ FUNCTION {techreport}
+   institution "institution" output.check
+   format.date "year" output.check
+   new.block
++  note output
+   new.sentence
+   format.url output
+-  note output
+   format.annote output
+   fin.entry
+ }
+@@ -1294,9 +1294,9 @@ FUNCTION {unpublished}
+   author.after
+   editor.organization.after
+   new.block
++  note "note" output.check
+   new.sentence
+   format.url output
+-  note "note" output.check
+   format.annote output
+   fin.entry
+ }
+diff --git a/master_diplom/listings.inc.tex b/master_diplom/listings.inc.tex
+index 1192594..6cef02a 100644
+--- a/master_diplom/listings.inc.tex
++++ b/master_diplom/listings.inc.tex
+@@ -1,7 +1,6 @@
+ % 8 Листинги
+ 
+ \usepackage{listings}
+-\usepackage{wrapfig}
+ % Значения по умолчанию
+ \lstset{
+   basicstyle= \footnotesize,
+@@ -16,9 +15,7 @@
+   showtabs=false,        % и табы тоже
+   stepnumber=1,
+   tabsize=4,              % кому нужны табы по 8 символов?
+-  frame=single,
+-xleftmargin=20pt,
+-xrightmargin=20pt
++  frame=single
+ }
+ 
+ % Стиль для псевдокода: строчки обычно короткие, поэтому размер шрифта побольше
+diff --git a/master_diplom/preamble.inc.tex b/master_diplom/preamble.inc.tex
+index a30bc33..ea6a5cf 100644
+--- a/master_diplom/preamble.inc.tex
++++ b/master_diplom/preamble.inc.tex
+@@ -5,7 +5,6 @@
+ \EqInChapter % формулы будут нумероваться в пределах раздела
+ \TableInChapter % таблицы будут нумероваться в пределах раздела
+ \PicInChapter % рисунки будут нумероваться в пределах раздела
+-\usepackage{slashbox}
+ 
+ % Добавляем гипертекстовое оглавление в PDF
+ \usepackage[
+@@ -13,7 +12,6 @@ bookmarks=true, colorlinks=true, unicode=true,
+ urlcolor=black,linkcolor=black, anchorcolor=black,
+ citecolor=black, menucolor=black, filecolor=black,
+ ]{hyperref}
+-
+ % Изменение начертания шрифта --- после чего выглядит таймсоподобно.
+ % apt-get install scalable-cyrfonts-tex
+ 
+@@ -28,10 +26,10 @@ citecolor=black, menucolor=black, filecolor=black,
+ \usepackage{graphicx}   % Пакет для включения рисунков
+ 
+ % С такими оно полями оно работает по-умолчанию:
+-% \RequirePackage[left=20mm,right=10mm,top=20mm,bottom=20mm,headsep=0pt]{geometry}
++%\RequirePackage[left=30mm,right=10mm,top=20mm,bottom=20mm,headsep=0pt]{geometry}
+ % Если вас тошнит от поля в 10мм --- увеличивайте до 20-ти, ну и про переплёт не забывайте:
+-\geometry{right=20mm}
+-\geometry{left=30mm}
++%\geometry{right=10mm}
++%\geometry{left=30mm}
+ 
+ 
+ % Пакет Tikz
+@@ -47,10 +45,21 @@ citecolor=black, menucolor=black, filecolor=black,
+ % itemize внутри tabular
+ \usepackage{paralist,array}
+ 
+-% Центрирование подписей к плавающим окружениям
+-\usepackage[justification=centering]{caption}
++% псевдокод
++\usepackage{algorithm2e}
+ 
+-% Греческий алфавит
+-\usepackage{upgreek}
+-% Значки рациональных чисел
+-\usepackage{amsfonts}
++\SetKwInput{KwData}{Исходные параметры}
++\SetKwInput{KwResult}{Результат}
++\SetKwInput{KwIn}{Входные данные}
++\SetKwInput{KwOut}{Выходные данные}
++\SetKwIF{If}{ElseIf}{Else}{если}{тогда}{иначе если}{иначе}{конец условия}
++\SetKwFor{While}{пока}{выполнять}{конец цикла}
++\SetKw{KwTo}{от}
++\SetKw{KwRet}{возвратить}
++\SetKw{Return}{возвратить}
++\SetKwBlock{Begin}{начало блока}{конец блока}
++\SetKwSwitch{Switch}{Case}{Other}{Проверить значение}{и выполнить}{вариант}{в противном случае}{конец варианта}{конец проверки значений}
++\SetKwFor{For}{цикл}{выполнять}{конец цикла}
++\SetKwFor{ForEach}{для каждого}{выполнять}{конец цикла}
++\SetKwRepeat{Repeat}{повторять}{до тех пор, пока}
++\SetAlgorithmName{Алгоритм}{алгоритм}{Список алгоритмов}
+diff --git a/master_diplom/rpz.bib b/master_diplom/rpz.bib
+index 6efa513..47acb2d 100644
+--- a/master_diplom/rpz.bib
++++ b/master_diplom/rpz.bib
+@@ -4,7 +4,7 @@
+   author =		 {Александр Крутиков},
+   title = 		 {Прогнозирование спортивных результатов в индивидуальных видах спорта с помощью обобщенно-регрессионной нейронной сети},
+   year = 		 {2018},
+-   publisher="Молодой ученый. — 2018. — №12.",
++   publisher="Молодой ученый, 2018. — №12.",
+   language =     "russian",
+   note = {c.22-26},
+ },
+@@ -25,7 +25,7 @@
+ 	language =     "russian"
+ },
+ @Book{def03,
+-	author =		 {Анна Вичугова},
++	author =		 {А. Вичугова},
+ title = 		 {Отберем то, что нужно Data Mining: как сформировать датасет для машинного обучения [Электронный ресурс]},
+ year = 		 {2019},
+ url = {URL:https://www.bigdataschool.ru/bigdata/dataset-data-preparation.html},
+@@ -92,29 +92,29 @@ note={дата обращения: 10.03.2020},
+ },
+ 
+ @Book{Book13,
+-	author =		 {Michal Sipko},
++	author =		 {M. Sipko},
+ 	title = 		 {Machine Learning for the Prediction of
+ 	Professional Tennis Matches},
+ 	year = 		 {2015},
+-	publisher = {Imperial College London [Электронный ресурс] URL:https://www.doc.ic.ac.uk/teaching/distinguished-projects/2015/m.sipko.pdf},
++	publisher = {Imperial College London [Электронный ресурс] URL:www.doc.ic.ac.uk/teaching/distinguished-projects/2015/m.sipko.pdf},
+ 	note = {дата обращения:29.03.2020},
+ },
+ 
+ @Book{Book14,
+-	author = {Raheel Shaikh},
++	author = {R. Shaikh},
+ 	title = {Feature Selection Techniques in Machine Learning with Python[Электронный ресурс]},
+-	url = {URL:https://towardsdatascience.com/feature-selection-techniques-in-machine-learning-with-python-f24e7da3f36e},
++	url = {URL:https://cutt.ly/yyNS7Tj},
+ 	note={дата обращения: 25.04.2020},
+ },
+ @Book{Book15,
+-	author = {{Valeria Fonti}},
++	author = {{V. Fonti}},
+ 	title = {Feature Selection using LASSO[Электронный ресурс]},
+ 	url = {URL:https://beta.vu.nl/werkstuk-fonti_tcm235-836234},
+ 	note={дата обращения: 25.04.2020},
+ },
+ 
+ @Book{Book17,
+-	author =		 { Terry M.E., Bradley R.A.(},
++	author =		 { Terry M., Bradley R.},
+ 	title = 		 {Rank analysis of incomplete block designs I: the method of paired comparison},
+ 	year = 		 {1952},
+ 	publisher = {Biometrika, No. 39},
+@@ -128,12 +128,14 @@ note={дата обращения: 10.03.2020},
+ 	note = {c.620},
+ },
+ @Book{Book19,
+-	author =		 {J.B. Keller},
+-	title = 		 {Tie point strategies in badminton, preprint},
+-	year = 		 {2003},	
++	author =		 {J. Renick},
++	title = 		 {Tie Point Strategy in Badminton and International Squash},
++		publisher = {Research Quarterly. American Alliance for Health, Physical Education and Recreation 48},
++	year = 		 {2013},
++		note = {c.492-498},	
+ },
+ @Book{Book20,
+-	author =		 {J.R. Enrick},
++	author =		 {J. Enrick},
+ 	title = 		 {Optimal strategies at decision points in singles squash},
+ 	year = 		 {1976},
+ 	publisher = {Quart. Exercise Sport}
+@@ -141,26 +143,26 @@ note={дата обращения: 10.03.2020},
+ },
+ 
+ @Book{Book21,
+-	author =		 {B.P. Hsi  и D.M. Burych},
++	author =		 {B. Hsi  и D. Burych},
+ 	title = 		 { Games of two players},
+ 	year = 		 {1971},
+ 	publisher = {Journal of the Royal Statistical Society  22(1)}	
+ },
+ 
+ @Book{Book22,
+-	author =		 {W.H. Carter и S.L. Crews},
++	author =		 {W. Carter и S. Crews},
+ 	title = 		 {An analysis of the game of tennis},
+ 	year = 		 {1974},
+ 	publisher = {Journal of the American Statistical Association   28(4)}	
+ },
+ @Book{Book23,
+-	author =		 {G.H. Pollard},
++	author =		 {G. Pollard},
+ 	title = 		 {An analysis of classical and tie-breaker tennis},
+ 	year = 		 {1983},
+ 	publisher = {Journal of the Australian Mathematical Society 25}	
+ },
+ @Book{Book24,
+-	author =		 {M.E. GlickNan},
++	author =		 {M. Glicknan},
+ 	title = 		 {Parameter estimation in large dynamic
+ 	paired comparison experiments},
+ 	year = 		 {1999},
+@@ -168,33 +170,36 @@ note={дата обращения: 10.03.2020},
+ },
+ @Book{Book25,
+ 	title= "Интеллектуальный анализ данных",
+-	author="Гахов Андрей",
++	author="Гахов А.",
+ 	publisher="Харьковский национальный университет имени В.Н. Карамзина",
+ 	year={2014},
+ 	language={English}
+ },
+ @Book{Book26,
+ 	title= "Data Representation for Natural Language Processing Tasks",
+-	author=" Matthew Mayo",
++	author=" M. Mayo",
+ 	year={2018},
+ 		url = {URL:https://www.kdnuggets.com/2018/11/data-representation-natural-language-processing.html},
+ 	note={дата обращения: 25.04.2020},
+ },
+ @Book{Book27,
+-	title= "Чудесный мир Word Embeddings: какие они бывают и зачем нужны?",
++	title= "Чудесный мир Word Embeddings: какие они бывают и зачем нужны?[Электронный ресурс]",
+ 	author="Валентин Малых ",
++
+ 	year={2017},
+ 	url = {URL:https://habr.com/ru/company/ods/blog/329410/},
+ 	note={дата обращения: 09.05.2020},
+ },
+ @Book{Book28,
+-	title= {"Efficient estimation of word representations in vector space"},
+-	author={"Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean"},
++	title= {"Efficient estimation of word representations in vector space[Электронный ресурс]"},
++	author={"T. Mikolov, K. Chen, G. Corrado, and Jeffrey Dean"},
++		url = {URL:https://arxiv.org/abs/1301.3781},
+ 	year={2013},
++		note={дата обращения: 09.05.2020},
+ },
+ @Book{Book29,
+ 	title={"Distributed representations of words and phrases and their compositionality"},
+-	author="Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean",
++	author="T. Mikolov, K. Chen, G. Corrado, J. Dean",
+ 	year={2013},
+ 	publisher="27th Annual Conference on Neural Information Processing System",
+ 		\note = {c.3111–3119},
+@@ -206,20 +211,20 @@ note={дата обращения: 10.03.2020},
+ 	publisher="Aistats № 5",
+ },
+ @Book{Book31,
+-	author =		 {Andrew L. Maas, Raymond E. Daly, Peter T. Pham, Dan Huang, Andrew Y. Ng, and Christopher Potts},
++	author =		 {A. Maas, R. Daly, P. P. Huang, A. Ng, С. Potts},
+ title = 		 {Learning Word Vectors for Sentiment Analysis},
+ year = 		 {2011},
+ publisher = {The 49th Annual Meeting of the Association for Computational Linguistics }	
+ },
+ @Book{Book32,
+-	author =		 {Peter C. Austin, Ewout W. Steyerbergd},
++	author =		 {P. Austin, E. Steyerbergd},
+ 	title = 		 {The number of subjects per variable required in linear regression analyses},
+ 	year = 		 {2015},
+ 	publisher = {Journal of Clinical Epidemiology 68},
+ 			note = {c.627-636},
+ },
+ @Book{Book33,
+-	author = {Егор Лабинцев},
++	author = {Е. Лабинцев},
+ 	title = {Метрики в задачах машинного обучения[Электронный ресурс]},
+ 	url = {URL: https://habr.com/company/ods/blog/328372/},
+ 	language =     "russian",
+@@ -227,7 +232,7 @@ publisher = {The 49th Annual Meeting of the Association for Computational Lingui
+ 	note={дата обращения: 26.05.2020},
+ },
+ @Book{Book34,
+-	author = {TYLER WOEBKENBERG},
++	author = {T. Woebkenberg},
+ 	title = {WTA Match Data[Электронный ресурс]},
+ 	url = {URL: https://data.world/tylerudite/wta-match-data},
+ 	language =     "russian",
+@@ -259,7 +264,7 @@ publisher = {The 49th Annual Meeting of the Association for Computational Lingui
+ 	note={дата обращения: 26.05.2020},
+ },
+ @Book{Book38,
+-	author = {Liye Fu and Cristian Danescu-Niculescu-Mizil and Lillian Lee},
++	author = {L. Fu and C. Danescu-Niculescu-Mizil, L. Lee},
+ 	title = {Tie-breaker: Using language models to quantify gender bias in sports journalism},
+ 	year = {2016},
+ 	publisher = { IJCAI workshop on NLP meets Journalism}
+@@ -275,7 +280,7 @@ note={дата обращения: 26.05.2020},
+ @Book{Book40,
+ 	title={"Predicting Wimbledon 2005 tennis results
+ 	by mere player name recognition"},
+-	author="Benjamin Scheibehenne, Arndt Broder ",
++	author="B. Scheibehenne, A. Broder ",
+ 	year={2013},
+ 	publisher="International Journal of Forecasting 23",
+ 	\note = {c.415-426},
+@@ -283,8 +288,8 @@ note={дата обращения: 26.05.2020},
+ @Book{Book41,
+ 	title={"A common-opponent stochastic model for predicting the outcome of
+ 	professional tennis matches"},
+-	author="William J. Knottenbelt, Demetris Spanias 
+-	, Agnieszka M. Madurska",
++	author="W. Knottenbelt, D. Spanias 
++	, A. Madurska",
+ 	year={2012},
+ 	publisher="Computers and Mathematics with Applications
+ 	 64
+@@ -294,7 +299,7 @@ note={дата обращения: 26.05.2020},
+ @Book{Book42,
+ 	title={"Predicting the Outcome of a Tennis Tournament: Based on Both Data and
+ 	Judgments"},
+-	author="Wei Gu, Thomas Saaty",
++	author="W. Gu, T. Saaty",
+ 	year={2019},
+ 	publisher="Journal of Systems Science and Systems Engineering
+ 	",
+diff --git a/master_diplom/rpz.pdf b/master_diplom/rpz.pdf
+index ae00e36..9efb63a 100644
+Binary files a/master_diplom/rpz.pdf and b/master_diplom/rpz.pdf differ
+diff --git a/master_diplom/rpz.tex b/master_diplom/rpz.tex
+index 42469c7..70c81dc 100644
+--- a/master_diplom/rpz.tex
++++ b/master_diplom/rpz.tex
+@@ -1,7 +1,7 @@
+ %% Преамбула TeX-файла
+ 
+ % 1. Стиль и язык
+-\documentclass[utf8x, 12pt]{G7-32} % Стиль (по умолчанию будет 14pt)
++\documentclass[utf8x, 14pt]{G7-32} % Стиль (по умолчанию будет 14pt)
+ 
+ % Остальные стандартные настройки убраны в preamble.inc.tex.
+ \include{preamble.inc}
+@@ -12,62 +12,63 @@
+ \else
+ \usepackage{local-minted}
+ \fi
+-\usepackage{pdfpages}
+ 
++\usepackage{pdfpages}
+ 
+ % Полезные макросы листингов.
+ \include{macros.inc}
+ 
+ \begin{document}
+-
+-\frontmatter % выключает нумерацию ВСЕГО; здесь начинаются ненумерованные главы: реферат, введение, глоссарий, сокращения и прочее.
+-
+-% Команды \breakingbeforechapters и \nonbreakingbeforechapters
+-% управляют разрывом страницы перед главами.
+-% По-умолчанию страница разрывается.
+-
+-% \nobreakingbeforechapters
+-% \breakingbeforechapters
+-\include{00-title}
+-тз
+-\newpage
+-тз
+-\newpage
+-план
+-\newpage
+-\include{00-abstract}
+-
+-\tableofcontents
+-
+-\include{10-defines}
+-\include{11-abbrev}
+-
+-\include{12-intro}
+-
+-\mainmatter % это включает нумерацию глав и секций в документе ниже
+-
+-\include{20-analysis}
+-\include{30-design}
+-\include{40-impl}
+-\include{50-research}
+-\include{60-economics}
+-\include{70-bzd}
+-
+-\backmatter %% Здесь заканчивается нумерованная часть документа и начинаются ссылки и
+-            %% заключение
+-
+-\include{80-conclusion}
+-
+-\include{81-biblio}
+-
+-\appendix   % Тут идут приложения
+-
+-\include{90-appendix1}
+-\include{91-appendix2}
+-
++	
++%	\includepdf[pages=-]{title.pdf}
++	
++	\frontmatter % выключает нумерацию ВСЕГО; здесь начинаются ненумерованные главы: реферат, введение, глоссарий, сокращения и прочее.
++	
++	тз
++	\newpage
++	тз
++	\newpage
++	план
++	\newpage
++	
++	% Команды \breakingbeforechapters и \nonbreakingbeforechapters
++	% управляют разрывом страницы перед главами.
++	% По-умолчанию страница разрывается.
++	
++	% \nobreakingbeforechapters
++	% \breakingbeforechapters
++	
++	\include{00-abstract}
++	
++	\tableofcontents
++	
++	\include{10-defines}
++	\include{11-abbrev}
++	
++	\include{12-intro}
++	
++	\mainmatter % это включает нумерацию глав и секций в документе ниже
++	
++	\include{20-analysis}
++	\include{30-design}
++	\include{40-impl}
++	\include{50-research}
++	
++	\backmatter %% Здесь заканчивается нумерованная часть документа и начинаются ссылки и
++	%% заключение
++	
++	\include{80-conclusion}
++	
++	\include{81-biblio}
++	
++	\appendix   % Тут идут приложения
++	
++	%\include{90-appendix1}
++	%\include{91-appendix2}
++	
+ \end{document}
+ 
+ %%% Local Variables:
+ %%% mode: latex
+ %%% TeX-master: t
+-%%% End:
++%%% End:
+\ No newline at end of file
