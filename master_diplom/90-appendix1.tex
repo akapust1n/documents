@@ -13,14 +13,13 @@
 %,caption={Код создания модели Word2Vec},
 \captionsetup{justification=centering}
 
-\begin{lstlisting}[language=python,,escapeinside={(@}{@)}, xleftmargin=.1\textwidth, xrightmargin=.1\textwidth] 
+\begin{lstlisting}[language=python,,escapeinside={(@}{@)},caption={Часть кода создания модели word2vec}, xleftmargin=.1\textwidth, xrightmargin=.1\textwidth] 
 import gensim
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import SGDClassifier
 from gensim.models.word2vec import Word2Vec
 from sklearn.preprocessing import scale
 from sklearn.calibration import CalibratedClassifierCV
-
 import numpy as np
 import os
 import random
